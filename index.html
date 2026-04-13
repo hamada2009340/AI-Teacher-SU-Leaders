@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Teacher Hub – قادة مدارس الجمهورية</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;900&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ░░ PARTICLES ░░ -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- ░░ BACKGROUND ░░ -->
+  <div class="bg-mesh"></div>
+  <div class="bg-grid"></div>
+
+  <!-- ░░ HEADER ░░ -->
+  <header class="header">
+    <div class="header-inner">
+
+      <!-- Logos Row -->
+      <div class="logos-bar">
+        <div class="org-logo su-logo">
+          <div class="logo-shield">
+            <span class="shield-su">SU</span>
+            <span class="shield-sub">قادة مدارس الجمهورية</span>
+          </div>
+        </div>
+
+        <div class="header-brand">
+          <div class="brand-spark">⚡</div>
+          <div class="brand-text">
+            <span class="brand-main">AI Teacher Hub</span>
+            <span class="brand-sub">مبادرة الانطلاقة الرقمية</span>
+          </div>
+        </div>
+
+        <div class="org-logo ylf-logo">
+          <div class="logo-ylf">
+            <span class="ylf-text">YLF</span>
+            <span class="ylf-sub">مؤسسة شباب القادة</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nav -->
+      <nav class="header-nav">
+        <button class="nav-pill active" data-tab="ask">
+          <span class="pill-icon">🎓</span>
+          <span>اسأل المعلم</span>
+        </button>
+        <button class="nav-pill" data-tab="lessons">
+          <span class="pill-icon">📚</span>
+          <span>الدروس</span>
+        </button>
+        <button class="nav-pill" data-tab="about">
+          <span class="pill-icon">🏆</span>
+          <span>عن المبادرة</span>
+        </button>
+        <button class="simple-toggle" id="simpleToggle" title="وضع مبسّط للطلاب">
+          <span>🧩</span>
+          <span class="simple-label">مبسّط</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ░░ MAIN ░░ -->
+  <main class="main">
+
+    <!-- ── TAB: ASK ── -->
+    <section class="tab-panel active" id="tab-ask">
+
+      <!-- Hero -->
+      <div class="hero">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          اتحاد طلاب مدارس محافظة القاهرة · CSU
+        </div>
+        <h1 class="hero-title">
+          مدرّسك الذكي
+          <span class="gradient-text"> بين إيديك</span>
+        </h1>
+        <p class="hero-desc">تعلّم أي مادة، في أي وقت، بأسلوب المعلم المصري الشاطر</p>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-num">10+</span>
+            <span class="stat-lbl">دروس محمّلة</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num">12</span>
+            <span class="stat-lbl">صف دراسي</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num">27</span>
+            <span class="stat-lbl">محافظة تنافس</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lesson Selector -->
+      <div class="card lesson-card">
+        <div class="card-header">
+          <span class="card-icon">📚</span>
+          <span class="card-label">اختر الدرس <em>(اختياري)</em></span>
+        </div>
+        <div class="selectors">
+          <div class="select-wrap">
+            <select id="gradeSelect" class="selector">
+              <option value="">الصف الدراسي</option>
+              <option value="1">الصف الأول الابتدائي</option>
+              <option value="2">الصف الثاني الابتدائي</option>
+              <option value="3">الصف الثالث الابتدائي</option>
+              <option value="4">الصف الرابع الابتدائي</option>
+              <option value="5">الصف الخامس الابتدائي</option>
+              <option value="6">الصف السادس الابتدائي</option>
+              <option value="7">الصف الأول الإعدادي</option>
+              <option value="8">الصف الثاني الإعدادي</option>
+              <option value="9">الصف الثالث الإعدادي</option>
+              <option value="10">الصف الأول الثانوي</option>
+              <option value="11">الصف الثاني الثانوي</option>
+              <option value="12">الصف الثالث الثانوي</option>
+            </select>
+            <span class="select-arrow">▾</span>
+          </div>
+          <div class="select-wrap">
+            <select id="subjectSelect" class="selector">
+              <option value="">المادة الدراسية</option>
+              <option value="math">رياضيات</option>
+              <option value="science">علوم</option>
+              <option value="arabic">لغة عربية</option>
+              <option value="english">لغة إنجليزية</option>
+              <option value="history">تاريخ</option>
+              <option value="geography">جغرافيا</option>
+              <option value="physics">فيزياء</option>
+              <option value="chemistry">كيمياء</option>
+              <option value="biology">أحياء</option>
+            </select>
+            <span class="select-arrow">▾</span>
+          </div>
+          <div class="select-wrap">
+            <select id="lessonSelect" class="selector">
+              <option value="">اختر الدرس</option>
+            </select>
+            <span class="select-arrow">▾</span>
+          </div>
+        </div>
+        <div id="lessonPreview" class="lesson-preview hidden"></div>
+      </div>
+
+      <!-- Question Card -->
+      <div class="card question-card">
+        <div class="card-header">
+          <span class="card-icon">💬</span>
+          <span class="card-label">سؤالك للمعلم الذكي</span>
+        </div>
+        <div class="textarea-wrap">
+          <textarea
+            id="questionInput"
+            class="question-input"
+            placeholder="مثلاً: شرح قانون نيوتن بطريقة سهلة، أو ما هو الفرق بين الجملة الاسمية والفعلية؟"
+            rows="4"
+          ></textarea>
+          <button class="voice-btn" id="voiceBtn" title="تحدّث بدلاً من الكتابة">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+              <line x1="12" y1="19" x2="12" y2="23"/>
+              <line x1="8" y1="23" x2="16" y2="23"/>
+            </svg>
+          </button>
+        </div>
+        <div class="char-count" id="charCount">0 / 500 حرف</div>
+
+        <div class="action-buttons">
+          <button class="action-btn btn-explain" data-mode="explain" id="explainBtn">
+            <span class="btn-glow"></span>
+            <span class="btn-icon">🎓</span>
+            <span class="btn-text">اشرح لي</span>
+            <span class="btn-hint">شرح مبسّط مع أمثلة</span>
+          </button>
+          <button class="action-btn btn-summarize" data-mode="summarize" id="summarizeBtn">
+            <span class="btn-glow"></span>
+            <span class="btn-icon">📝</span>
+            <span class="btn-text">لخّص</span>
+            <span class="btn-hint">نقاط مختصرة</span>
+          </button>
+          <button class="action-btn btn-questions" data-mode="questions" id="questionsBtn">
+            <span class="btn-glow"></span>
+            <span class="btn-icon">❓</span>
+            <span class="btn-text">أسئلة اختبار</span>
+            <span class="btn-hint">5 أسئلة مع إجابات</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Response Card -->
+      <div class="card response-card" id="responseCard">
+        <div class="loading-state hidden" id="loadingState">
+          <div class="ai-loader">
+            <div class="ai-brain">🧠</div>
+            <div class="loader-rings">
+              <div class="ring ring-1"></div>
+              <div class="ring ring-2"></div>
+              <div class="ring ring-3"></div>
+            </div>
+          </div>
+          <p class="loading-text" id="loadingText">المعلم الذكي يفكر…</p>
+        </div>
+
+        <div class="empty-state" id="emptyState">
+          <div class="empty-robot">
+            <div class="robot-face">🤖</div>
+            <div class="robot-pulse"></div>
+          </div>
+          <p class="empty-title">جاهز للمساعدة!</p>
+          <p class="empty-sub">اكتب سؤالك واضغط على أي إجراء فوق</p>
+          <div class="empty-features">
+            <span>🎤 إدخال صوتي</span>
+            <span>🔊 قراءة صوتية</span>
+            <span>🧩 وضع مبسّط</span>
+          </div>
+        </div>
+
+        <div class="response-content hidden" id="responseContent">
+          <div class="response-header">
+            <div class="response-badge" id="responseBadge">شرح</div>
+            <div class="response-actions">
+              <button class="icon-btn" id="ttsBtn" title="اقرأ بصوت عالٍ">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                  <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+                </svg>
+              </button>
+              <button class="icon-btn" id="copyBtn" title="نسخ الإجابة">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="response-body" id="responseBody"></div>
+        </div>
+
+        <div class="error-state hidden" id="errorState">
+          <div class="error-icon">⚠️</div>
+          <p id="errorMsg">حدث خطأ، حاول مرة أخرى.</p>
+          <button class="retry-btn" id="retryBtn">إعادة المحاولة</button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ── TAB: LESSONS ── -->
+    <section class="tab-panel" id="tab-lessons">
+      <div class="hero">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          مكتبة الدروس المصنّفة
+        </div>
+        <h1 class="hero-title">قاعدة <span class="gradient-text">الدروس</span></h1>
+        <p class="hero-desc">اختر درسًا واسأل عنه مباشرة</p>
+      </div>
+      <div class="lessons-grid" id="lessonsGrid"></div>
+    </section>
+
+    <!-- ── TAB: ABOUT ── -->
+    <section class="tab-panel" id="tab-about">
+      <div class="hero">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          مبادرة على مستوى الجمهورية
+        </div>
+        <h1 class="hero-title">الانطلاقة <span class="gradient-text">الرقمية</span></h1>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-card">
+          <div class="about-icon">🏆</div>
+          <h3>قادة مدارس الجمهورية</h3>
+          <p>برنامج وطني يجمع أفضل قادة اتحادات طلاب المدارس من 27 محافظة في منافسة حقيقية على مستوى الجمهورية</p>
+        </div>
+        <div class="about-card">
+          <div class="about-icon">🚀</div>
+          <h3>مبادرة الانطلاقة الرقمية</h3>
+          <p>مبادرة اللجنة العلمية لاتحاد طلاب مدارس محافظة القاهرة لتسهيل المناهج الدراسية باستخدام الذكاء الاصطناعي</p>
+        </div>
+        <div class="about-card">
+          <div class="about-icon">🤖</div>
+          <h3>AI Teacher Hub</h3>
+          <p>منصة تعليمية ذكية تستخدم أحدث نماذج الذكاء الاصطناعي لتقديم شرح مبسّط لجميع المواد الدراسية بأسلوب المعلم المصري</p>
+        </div>
+        <div class="about-card">
+          <div class="about-icon">🌟</div>
+          <h3>مؤسسة شباب القادة YLF</h3>
+          <p>الراعي الرسمي للبرنامج، تهدف لبناء جيل قيادي قادر على التغيير وصنع المستقبل من خلال برامج تطوير متكاملة</p>
+        </div>
+      </div>
+
+      <div class="initiative-banner">
+        <div class="banner-logos">
+          <div class="b-logo">
+            <div class="b-shield">
+              <span>SU</span>
+              <small>قادة الجمهورية</small>
+            </div>
+          </div>
+          <div class="banner-x">×</div>
+          <div class="b-logo b-csu">
+            <span class="csu-text">CSU</span>
+            <small>اتحاد القاهرة</small>
+          </div>
+          <div class="banner-x">×</div>
+          <div class="b-logo b-ylf">
+            <span class="ylf-big">YLF</span>
+            <small>شباب القادة</small>
+          </div>
+        </div>
+        <p class="banner-tagline">معًا نصنع التغيير الرقمي في التعليم المصري 🇪🇬</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ░░ TOAST ░░ -->
+  <div class="toast" id="toast"></div>
+
+  <!-- ░░ SIMPLE MODE OVERLAY ░░ -->
+  <div class="simple-overlay hidden" id="simpleOverlay">
+    <div class="simple-card">
+      <div class="simple-header">
+        <span>🧩 الوضع المبسّط</span>
+        <button class="simple-close" id="simpleClose">✕</button>
+      </div>
+      <div class="simple-content" id="simpleContent"></div>
+      <button class="simple-tts-btn" id="simpleTtsBtn">🔊 استمع للإجابة</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
