@@ -23,7 +23,7 @@ const PORT = process.env.PORT || 3000;
 // ──────────────────────────────────────────────────────────────
 
 // OpenRouter API Key
-const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY || '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';
+const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
 
 // Model (OpenRouter supports many models)
 const AI_MODEL = 'openai/gpt-4o-mini';
