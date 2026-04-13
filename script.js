@@ -175,7 +175,11 @@ async function askAI(mode) {
   loadingText.textContent={explain:'المعلم الذكي يُعدّ الشرح…',summarize:'جاري التلخيص…',questions:'يُنشئ أسئلة الاختبار…'}[mode]||'جارٍ المعالجة…';
 
   try {
-    const res=await fetch('/ask-ai',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+const res = await fetch('https://ai-teacher-su-leaders-production.up.railway.app/ask-ai', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(payload)
+});
     const data=await res.json();
     if(!res.ok) throw new Error(data.error||`خطأ من الخادم (${res.status})`);
     lastResponse=data.answer||'';
